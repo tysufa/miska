@@ -531,7 +531,8 @@ void BPF_STRUCT_OPS(ksched_dispatch, s32 cpu, struct task_struct *prev) {
   // for (int i = 0; i < 16; i++) { 			if (curr < 0 || curr >=
   // 1024) 				break; 			struct bst_node
   // *n = &tree->nodes[curr]; 			bpf_printk("  [%d] PID: %d (L:%d
-  // R:%d P:%d)", curr, 				   n->pid, n->left, n->right, n->parent);
+  // R:%d P:%d)", curr, 				   n->pid, n->left,
+  // n->right, n->parent);
   //
   // 			// For a simple visual, just follow the left-most path
   // 			// or modify to use the stack-traversal provided

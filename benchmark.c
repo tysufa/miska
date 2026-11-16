@@ -67,8 +67,8 @@ void mandelbroot() {
   /*write ASCII header to the file*/
   // fprintf(fp,
   // 	"P6\n# Mandelbrot, xmin=%lf, xmax=%lf, ymin=%lf, ymax=%lf,
-  // maxiter=%d\n%d\n%d\n%d\n", 	xmin, xmax, ymin, ymax, maxiter, xres, yres,
-  // 	(maxiter < 256 ? 256 : maxiter));
+  // maxiter=%d\n%d\n%d\n%d\n", 	xmin, xmax, ymin, ymax, maxiter, xres,
+  // yres, 	(maxiter < 256 ? 256 : maxiter));
 
   /* Precompute pixel width and height. */
   double dx = (xmax - xmin) / xres;
