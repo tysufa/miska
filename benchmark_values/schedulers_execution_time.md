@@ -1,0 +1,80 @@
+# 4 coeurs
+
+## sched_test
+observations non mesurees : 
+
+10~15 secondes environ scx_mine
+1~2 secondes pour ksched
+
+### ksched
+38005652070 ns
+37465532323
+38610928615
+38739937691
+35700711025
+
+moyenne par task ~= 90 ms
+
+### scx_mine
+2557195884   ns
+458179163121
+516318464171
+197508302746
+603653051177
+
+
+## bench
+idem : l'execution est plus rapide pour pour mon scheduler, avec cependant des crash avec une occurence d'environ 1/10
+
+
+### ksched
+313688480513 ns
+1 erreur
+39815455671
+194494880916
+466120952032
+
+moyenne par task ~= 200 ms
+
+### scx_mine
+871916006123 ns
+688579430191
+539079148028
+646031854710
+
+# 1 coeur
+## sched_test
+
+### ksched
+150902349736
+148888918562
+134280379846
+124845360261
+151679916814
+
+moyenne par tache ~= 348 ms
+
+### scx_mine
+1993477878
+1045901709
+3005245690
+597433831
+1144309982
+
+
+## bench
+
+### ksched
+11308969744
+11454038451
+11491334184
+301967915067
+11353174223
+
+
+### scx_mine
+468618743525
+490660776834
+472673615603
+491556562060
+470496447909
