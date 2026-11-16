@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?plantuml 1.2026.2?><svg
+   contentStyleType="text/css"
+   data-diagram-type="DESCRIPTION"
+   height="427px"
+   preserveAspectRatio="none"
+   style="width:809px;height:427px;background:#FFFFFF;"
+   version="1.1"
+   viewBox="0 0 809 427"
+   width="809px"
+   zoomAndPan="magnify"
+   id="svg12"
+   sodipodi:docname="test.svg"
+   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview12"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.8033707"
+     inkscape:cx="468.567"
+     inkscape:cy="215.42992"
+     inkscape:window-width="2560"
+     inkscape:window-height="1372"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg12" />
+  <defs
+     id="defs1" />
+  <g
+     class="entity"
+     data-qualified-name="test.fair"
+     data-source-line="12"
+     id="ent0005"
+     transform="translate(-39.370718,-111.45795)">
+    <rect
+       fill="#f1f1f1"
+       height="39.067902"
+       rx="2.5"
+       ry="2.5"
+       style="stroke:#181818;stroke-width:0.5"
+       width="211.4072"
+       x="313.79001"
+       y="266.13"
+       id="rect2" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="191.4072"
+       x="323.79001"
+       y="291.09589"
+       id="text3">Scheduler par defaut (EEVDF)</text>
+  </g>
+  <g
+     class="entity"
+     data-qualified-name="test.rt"
+     data-source-line="13"
+     id="ent0006"
+     transform="translate(-39.370718,-111.45795)">
+    <rect
+       fill="#f1f1f1"
+       height="39.067902"
+       rx="2.5"
+       ry="2.5"
+       style="stroke:#181818;stroke-width:0.5"
+       width="226.38721"
+       x="560.29999"
+       y="266.13"
+       id="rect3" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="206.38721"
+       x="570.29999"
+       y="291.09589"
+       id="text4">Scheduler temps réel (FIFO, RR)</text>
+  </g>
+  <g
+     class="entity"
+     data-qualified-name="test.ext"
+     data-source-line="14"
+     id="ent0007"
+     transform="translate(-39.370718,-111.45795)">
+    <rect
+       fill="#f1f1f1"
+       height="39.067902"
+       rx="2.5"
+       ry="2.5"
+       style="stroke:#181818;stroke-width:0.5"
+       width="161.9454"
+       x="116.52"
+       y="266.13"
+       id="rect4" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="141.9454"
+       x="126.52"
+       y="291.09589"
+       id="text5">Sched_ext framework</text>
+  </g>
+  <g
+     class="entity"
+     data-qualified-name="test.core"
+     data-source-line="16"
+     id="ent0008"
+     transform="translate(-39.370718,-111.45795)">
+    <rect
+       fill="#f1f1f1"
+       height="39.067902"
+       rx="2.5"
+       ry="2.5"
+       style="stroke:#181818;stroke-width:0.5"
+       width="164.1154"
+       x="337.42999"
+       y="365.20001"
+       id="rect5" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="144.1154"
+       x="347.42999"
+       y="390.16589"
+       id="text6">Core kernel scheduler</text>
+  </g>
+  <g
+     class="link"
+     data-entity-1="ent0005"
+     data-entity-2="ent0008"
+     data-link-type="dependency"
+     data-source-line="22"
+     id="lnk13"
+     transform="translate(-39.370718,-111.45795)">
+    <path
+       d="m 419.49,305.38 c 0,17.08 0,36.2 0,53.37"
+       fill="none"
+       id="fair-to-core"
+       style="stroke:#181818;stroke-width:1" />
+    <polygon
+       fill="#181818"
+       points="419.49,364.75 423.49,355.75 419.49,359.75 415.49,355.75 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon10" />
+  </g>
+  <g
+     class="link"
+     data-entity-1="ent0006"
+     data-entity-2="ent0008"
+     data-link-type="dependency"
+     data-source-line="23"
+     id="lnk14"
+     transform="translate(-39.370718,-111.45795)">
+    <path
+       d="m 623.92,305.61 c -44.76,17.11 -104.6553,39.9981 -149.3753,57.0881"
+       fill="none"
+       id="rt-to-core"
+       style="stroke:#181818;stroke-width:1" />
+    <polygon
+       fill="#181818"
+       points="468.94,364.84 478.7749,365.3637 473.6106,363.0551 475.9191,357.8908 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon11" />
+  </g>
+  <g
+     class="link"
+     data-entity-1="ent0007"
+     data-entity-2="ent0008"
+     data-link-type="dependency"
+     data-source-line="24"
+     id="lnk15"
+     transform="translate(-39.370718,-111.45795)">
+    <path
+       d="m 240.82,305.61 c 39.12,17.11 90.8727,39.736 129.9527,56.826"
+       fill="none"
+       id="ext-to-core"
+       style="stroke:#181818;stroke-width:1" />
+    <polygon
+       fill="#181818"
+       points="376.27,364.84 369.6267,357.5691 371.6889,362.8366 366.4213,364.8988 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon12" />
+  </g>
+</svg>
