@@ -1,0 +1,22 @@
+ Task                  |   Runtime ms  |  Count   | Avg delay ms    | Max delay ms    | Max delay start           | Max delay end          |
+ -------------------------------------------------------------------------------------------------------------------------------------------
+  mandelbroot:675       |   2514.127 ms |      165 | avg:  85.857 ms | max: 527.621 ms | max start:   728.367971 s | max end:   728.895593 s
+  mandelbroot:680       |   2497.160 ms |      160 | avg:  89.456 ms | max: 521.719 ms | max start:   739.886978 s | max end:   740.408696 s
+  mandelbroot:662       |   2613.720 ms |      165 | avg:  70.392 ms | max: 386.445 ms | max start:   727.953519 s | max end:   728.339965 s
+  mandelbroot:678       |   2478.228 ms |      178 | avg:  79.915 ms | max: 353.994 ms | max start:   727.971972 s | max end:   728.325967 s
+  mandelbroot:679       |   2402.394 ms |      185 | avg:  78.829 ms | max: 333.999 ms | max start:   727.992966 s | max end:   728.326965 s
+  mandelbroot:676       |   2469.099 ms |      180 | avg:  79.091 ms | max: 323.119 ms | max start:   737.691972 s | max end:   738.015091 s
+  mandelbroot:677       |   2462.843 ms |      195 | avg:  73.246 ms | max: 322.882 ms | max start:   732.840972 s | max end:   733.163854 s
+  mandelbroot:674       |   2544.014 ms |      150 | avg:  89.100 ms | max: 294.997 ms | max start:   727.989972 s | max end:   728.284969 s
+  mandelbroot:665       |   2620.507 ms |      159 | avg:  73.067 ms | max: 293.995 ms | max start:   728.157970 s | max end:   728.451965 s
+  mandelbroot:673       |   2566.290 ms |      156 | avg:  77.776 ms | max: 292.997 ms | max start:   729.880967 s | max end:   730.173963 s
+  mandelbroot:666       |   2630.582 ms |      124 | avg:  83.857 ms | max: 274.003 ms | max start:   728.178965 s | max end:   728.452968 s
+  mandelbroot:663       |   2623.479 ms |      131 | avg:  82.277 ms | max: 272.992 ms | max start:   728.136968 s | max end:   728.409961 s
+  mandelbroot:668       |   2622.002 ms |      153 | avg:  74.960 ms | max: 251.997 ms | max start:   728.220965 s | max end:   728.472962 s
+  mandelbroot:672       |   2612.655 ms |      143 | avg:  79.310 ms | max: 250.003 ms | max start:   730.218963 s | max end:   730.468966 s
+  mandelbroot:670       |   2608.616 ms |      139 | avg:  79.865 ms | max: 242.003 ms | max start:   727.999963 s | max end:   728.241966 s
+  mandelbroot:669       |   2619.345 ms |      165 | avg:  69.547 ms | max: 233.998 ms | max start:   728.241966 s | max end:   728.475964 s
+  mandelbroot:671       |   2621.431 ms |      167 | avg:  69.362 ms | max: 228.003 ms | max start:   728.034964 s | max end:   728.262967 s
+  mandelbroot:667       |   2628.035 ms |      156 | avg:  73.887 ms | max: 191.554 ms | max start:   728.263974 s | max end:   728.455528 s
+  mandelbroot:661       |   2621.100 ms |      142 | avg:  80.565 ms | max: 189.000 ms | max start:   728.199967 s | max end:   728.388967 s
+  mandelbroot:664       |   2646.672 ms |      115 | avg:  79.254 ms | max: 150.995 ms | max start:   731.056967 s | max end:   731.207962 s
