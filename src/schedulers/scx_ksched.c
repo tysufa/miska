@@ -5,11 +5,11 @@
  * Copyright (c) 2022 David Vernet <dvernet@meta.com>
  */
 #include "bpf/libbpf.h"
+#include <scx/common.h>
 #include "scx_ksched.bpf.skel.h"
 #include <assert.h>
 #include <bpf/bpf.h>
 #include <libgen.h>
-#include <scx/common.h>
 #include <signal.h>
 #include <stdio.h>
 #include <unistd.h>

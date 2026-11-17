@@ -175,7 +175,7 @@ void BPF_STRUCT_OPS(mine_dispatch, s32 cpu, struct task_struct *prev)
 {
 
 
-	 if (scx_bpf_dsq_move_to_local(SHARED_DSQ))
+	 if (scx_bpf_dsq_move_to_local___v1(SHARED_DSQ))
         return;
 
 	u32 key = 0; // on a qu'une case dans notre boite au lettre
@@ -225,7 +225,7 @@ void BPF_STRUCT_OPS(mine_dispatch, s32 cpu, struct task_struct *prev)
 		bpf_map_update_elem(&decision_map, &key, &empty, BPF_ANY);
 
 		// 3. Consommer immédiatement ce qu'on vient d'insérer
-        scx_bpf_dsq_move_to_local(SHARED_DSQ);
+        scx_bpf_dsq_move_to_local___v1(SHARED_DSQ);
 	}else{
 		// cas ou le cpu devient idle, on prévient que le cpu est idle au travers de notre map
 		key = cpu;
