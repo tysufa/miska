@@ -1,5 +1,5 @@
 ./output-vm/bin/run-nixos-vm \
--kernel /home/tysufa/Projects/miska/linux-7.2.15/arch/x86/boot/bzImage 2> /dev/null || ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p 2222 root@localhost
+-kernel $PWD/linux-7.2.15/arch/x86/boot/bzImage 2> /dev/null || ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p 2222 root@localhost
 
 # ssh -p 2222 root@localhost
 # or
