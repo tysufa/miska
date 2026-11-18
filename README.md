@@ -23,8 +23,8 @@ $$
 \begin{aligned}
 \text{priority} &= c \cdot b + \frac{\text{PID}}{1 + \alpha} \\
 \alpha &= 0.001 \\
-b &= \text{PID\_MAX} \cdot \alpha \\
-c &= \text{cycle\_number}
+b &= \text{PID MAX} \cdot \alpha \\
+c &= \text{cycle number}
 \end{aligned}
 $$
 
@@ -59,4 +59,4 @@ perf sched latency -p
 
 Below is an example of installing and setting up the repository (using a precompiled kernel to save time):
 
-![miska setup](assets/miska_test.gif)
+![miska_setup](./assets/miska_test.gif)
