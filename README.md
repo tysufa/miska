@@ -59,4 +59,6 @@ perf sched latency -p
 
 Below is an example of installing and setting up the repository (using a precompiled kernel to save time):
 
-![miska_setup](./assets/miska_test.gif)
+![miska_setup](./assets/miska_demo.gif)
+
+
