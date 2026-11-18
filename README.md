@@ -1,54 +1,62 @@
 # Miska
 
-## What is miska
+## What is Miska?
 
-It's a repository containing sched_ext schedulers, who aim to priorize lower pid tasks, there are 4 schedulers :
-- scx_ksched
-- scx_mine
-- scx_kdyma
-- scx_dyna
+Miska is a repository containing `sched_ext` schedulers that aim to prioritize tasks with lower PIDs. There are 4 schedulers:
+- `scx_ksched`
+- `scx_mine`
+- `scx_kdyna`
+- `scx_dyna`
 
-### scx_ksched and scx_mine
-Those 2 are really basic : they only look at the smallest pid eligible and elect it, the main difference between the 2 is that scx_ksched runs almost entirely in the kernel (yes I know, great creativity in the name) in bpf code and scx_mine is almost entirely in userspace.
-We made those 2 to learn how to make sched_ext schedulers and to compare the impact in terms of performance and ease of developement between userspace programming and kernel programming.
+### `scx_ksched` and `scx_mine`
+These two are very basic: they simply look for the lowest eligible PID and schedule it. The main difference between the two is that `scx_ksched` runs almost entirely in the kernel (yes, I know—great creativity with the name) via BPF code, whereas `scx_mine` runs almost entirely in userspace.
 
-### scx_dyna
+We built these two to learn how to write `sched_ext` schedulers and to compare the performance impact and ease of development between userspace and kernel-space scheduling.
+
+### `scx_dyna`
 
 ![scx_dyna algorithm](./rapport/images/png/schema_files_actives.png)
 
-### scx_kdyna
+### `scx_kdyna`
 
-$$ priority = c * b + (PID / (1 + \alpha))
-\\
-\alpha = 0.001 \\
-b = PID\_MAX * \alpha \\
-c = cycle\_number $$
+$$
+\begin{aligned}
+\text{priority} &= c \cdot b + \frac{\text{PID}}{1 + \alpha} \\
+\alpha &= 0.001 \\
+b &= \text{PID\_MAX} \cdot \alpha \\
+c &= \text{cycle\_number}
+\end{aligned}
+$$
 
+## Setup and Testing
 
-## Setup and Test
+### Installation
 
-### Installing
+The schedulers have only been tested on Linux kernel `7.2.15`. They should work on most kernels with `sched_ext` support, though upstream API changes may cause compilation failures.
 
-The schedulers have only be tested for kernel 7.2.15, it should work on most kernel with sched_ext support but some changes in the api could make the compilation fail.
+#### On NixOS
+1. Enter the Nix shell with `nix develop`
+2. Run `make`
+3. Start the VM with `./run` or by running the script at `./output-vm/bin/run-nixos-vm`
 
-#### If you are on nixos, the process is easy :
-1. enter the nix shell with `nix develop`
-2. run `make`
-3. start the vm with `./run` or just by running the script in `./output-vm/bin/run-nixos-vm`
+Once inside the VM, compile the benchmark (`gcc /mnt/work/src/benchmark.c -o bench`) and run it with or without the schedulers (located at `/mnt/work/linux-7.2.15/tools/sched_ext/build/bin/scx_ksched`).
 
-Once in the vm, you just have to compile the benchmark (`gcc /mnt/work/src/benchmark.c -o bench`) and execute it with or without the schedulers (accessible via `/mnt/work/linux-7.2.15/tools/sched_ext/build/bin/scx_ksched`)
+> **Note:** The `vm.nix` script has only been tested on my machine—if it doesn't work for you, feel free to modify it or use your own VM.
 
-The `vm.nix` script has only be tested on my machine, so if it doesn't work for you, feel free to modify it or use you own vm
+#### Other Platforms
+Running `make sched` should compile both the Linux kernel and the `sched_ext` schedulers (as long as you have the required build dependencies installed), though you will need to build or configure your own virtual machine.
 
-#### Other plateforms
+### Usage and Benchmarking
 
-`make sched` should work properly and compile the linux kernel and sched_ext schedulers (has long as you have the required dependencies) but you will have to use/build your own virtual machine. 
+The schedulers are configured with the `SCX_OPS_SWITCH_PARTIAL` flag, meaning that unless a program explicitly requests `sched_ext`, the kernel will continue scheduling it with `EEVDF`. You can either remove this flag (not recommended) or use the provided benchmark in `src/benchmark.c`.
 
-### Using and testing
-The schedulers are set with the flag `SCX_OPS_SWITCH_PARTIAL` which means unless the program notifies that it wants to use sched_ext, the kernel will keep using EEVDF. You can either remove this flag (unrecommanded) or use the provided benchmark : `src/benchmark.c`
+To test a scheduler, compile `src/benchmark.c` and run it while your chosen scheduler is active. While the schedulers print basic metrics (currently only `average_delay`) to `stdout`, we recommend using `perf` instead as we haven't fully validated the built-in metrics:
 
-to use it simply compile it and run it with the desired scheduler running. The schedulers are supposed to give metrics in stdout, but it is recommended to use perf instead as we didn't spend much time checking if the generated perfs are coherent and for now there is only the average_delay of the scheduler.
-Simply use `perf sched record -- ./benchmark` and then `perf sched latency -p` to inspect the results
-You can see an exemple of installing and setting up the repo (with a precompiled kernel to gain time) :
+```bash
+perf sched record -- ./bench
+perf sched latency -p
+```
 
-![./assets/miska_test.gif]
+Below is an example of installing and setting up the repository (using a precompiled kernel to save time):
+
+![miska setup](assets/miska_test.gif)
